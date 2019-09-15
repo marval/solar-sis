@@ -1,8 +1,0 @@
-{
-  "name": "solar-sis_pcm",
-  "version": "1.0.0",
-  "dependencies": {
-    "solar-sis": "latest",
-    "serialport": "7.1.4"
-  }
-}
