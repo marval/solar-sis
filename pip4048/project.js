@@ -25,8 +25,8 @@ function MyMpiCallbacks () {
     //console.log("charge: " +  Number(json['battery_charging_current'])*Number(json['battery_voltage_from_scc']));
     //console.log("discharge: " + Number(json['battery_discharge_current'])*Number(json['battery_voltage']));
     //console.log("output: " + output_w);
-    //var charge = Number(json['battery_charging_current'])*Number(json['battery_voltage_from_scc']);
-    //var discharge = Number(json['battery_discharge_current'])*Number(json['battery_voltage']);
+    var charge = Number(json['battery_charging_current'])*Number(json['battery_voltage_from_scc']);
+    var discharge = Number(json['battery_discharge_current'])*Number(json['battery_voltage']);
     var ac_w = output_w - solar_w - Number(json['battery_discharge_current'])*Number(json['battery_voltage_from_scc']) - Number(json['battery_charging_current'])*Number(json['battery_voltage']);
     
     if(solar_w >  charge)
