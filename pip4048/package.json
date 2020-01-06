@@ -2,7 +2,8 @@
   "name": "solar-sis_pip",
   "version": "1.0.1",
   "dependencies": {
-    "solar-sis": "latest",
-    "serialport": "7.1.4"
+    "https": "^1.0.0",
+    "serialport": "7.1.4",
+    "solar-sis": "latest"
   }
 }

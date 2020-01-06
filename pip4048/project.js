@@ -4,7 +4,7 @@ var mpi = require("solar-sis");
 
 var mqtt = require('mqtt')
 var https = require('https');
-var client  = mqtt.connect('mqtt://10.0.1.20:1883')
+var client  = mqtt.connect('mqtt://10.0.0.20:1883')
 var emonApiKey = 'huahuahuahua';
 var emonCmsUrl = 'https://emoncms.home.mvalov.me/input/post?node=solar-sis&fulljson=JSON_DATA&apikey=' + emonApiKey;
 
