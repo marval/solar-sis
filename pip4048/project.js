@@ -3,7 +3,10 @@
 var mpi = require("solar-sis");
 
 var mqtt = require('mqtt')
+var https = require('https');
 var client  = mqtt.connect('mqtt://10.0.1.20:1883')
+var emonApiKey = 'huahuahuahua';
+var emonCmsUrl = 'https://emoncms.home.mvalov.me/input/post?node=solar-sis&fulljson=JSON_DATA&apikey=' + emonApiKey;
 
 function MyMpiCallbacks () {
   var fr = 0;
@@ -45,6 +48,19 @@ function MyMpiCallbacks () {
     //client.publish('solar/bat', bat_w.toString());
     client.publish('solar/ac', ac_w.toString());
     client.publish('solar/output', output_w.toString());
+
+    var tempObj = {
+      solar_w: solar_w,
+      output_w: output_w,
+      charge: charge,
+      discharge: discharge
+    }
+
+    https.get(emonCmsUrl.replace('JSON_DATA', JSON.stringify(tempObj)), function (resp) {
+      
+    }).on("error", function (err) {
+      console.log('EmonCMS error: ' + err);
+    });
   }
 
   this.feeding_grid_power_calibration = function (qc, data, arr) {
